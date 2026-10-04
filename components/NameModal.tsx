@@ -54,7 +54,7 @@ export const NameModal: React.FC<NameModalProps> = ({
         <form onSubmit={handleSubmit} className="space-y-4">
           <div>
             <label className="block text-xs uppercase tracking-wider text-[#D9B88F] font-semibold mb-2">
-              Her Name
+              Lekha
             </label>
             <input
               type="text"
@@ -70,7 +70,7 @@ export const NameModal: React.FC<NameModalProps> = ({
             <button
               type="button"
               onClick={() => {
-                onSaveName("HER NAME");
+                onSaveName("LEKHA");
                 onClose();
               }}
               className="px-4 py-2.5 rounded-xl border border-[#C77C8A]/30 text-xs text-[#FFF1F4]/70 hover:text-[#FFF1F4] hover:border-[#C77C8A]/60 transition-colors"
