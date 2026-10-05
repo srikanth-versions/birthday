@@ -17,12 +17,16 @@ export const BirthdayExperience: React.FC<BirthdayExperienceProps> = ({
   const [letterOpen, setLetterOpen] = useState(false);
   const [activeCard, setActiveCard] = useState<number | null>(null);
 
-  // Photos loaded directly from the images folder
+  // Media loaded directly from the public photos folder
   const [photos] = useState<string[]>([
-    "/photos/img1.png",
+    "/photos/img1.jpeg",
     "/photos/img2.jpeg",
     "/photos/img3.jpeg",
     "/photos/img4.jpeg",
+    "/photos/img5.jpeg",
+    "/photos/img6.jpeg",
+    "/photos/img7.jpeg",
+    "/photos/vid1.mp4"
   ]);
 
   const [selectedPhoto, setSelectedPhoto] = useState<string | null>(null);
@@ -58,23 +62,23 @@ export const BirthdayExperience: React.FC<BirthdayExperienceProps> = ({
 
   const loveReasons = [
     {
-      title: "Your Electric Smile",
-      description: "When you smile at me, everything else disappears — it's the most beautiful thing I've ever seen.",
+      title: "Our Bond",
+      description: "I Have Many People In My Life, But You’ll Always Be Special To Me. ❤️",
       icon: "✨",
     },
     {
       title: "Your Kind Heart",
-      description: "I don't know how you are with your friends and family, but with me, you've always been so kind and caring.",
+      description: "I don't know how you are with your friends and family, but with me, you've always cringe and You Never Judge Me ,that's why I Am Still Talking With You.Because I Too Like to Do that",
       icon: "💖",
     },
     {
       title: "Our Shared Dreams",
-      description: "Building memories, laughing until our stomachs hurt, and growing together side by side.",
+      description: "Building memories, laughing until our stomachs hurt, and growing together side by side All the Best to Future Doctor.",
       icon: "🌌",
     },
     {
       title: "Your Unique Grace",
-      description: "You get angry and possessive quickly, but after every fight or argument, you're always the first to say sorry — without any ego. That takes real love.",
+      description: "you have only 5 sense when your talking with me , me too , ",
       icon: "🌹",
     },
   ];
@@ -83,12 +87,12 @@ export const BirthdayExperience: React.FC<BirthdayExperienceProps> = ({
     {
       date: "CHAPTER I",
       title: "The First Spark",
-      text: "I still remember the first time we met. The way our eyes met for the first time is a moment I'll always remember.",
+      text: "I Can't Belive , You and Me 11 yrs of friendship",
     },
     {
       date: "CHAPTER II",
       title: "Unforgettable Adventures",
-      text: "Late night conversations, endless laughter, and discovering new corners of the world together.",
+      text: "Late night conversations, endless laughter, and discovering new corners of the world together and with only using 5 sense.",
     },
     {
       date: "CHAPTER III",
@@ -139,11 +143,24 @@ export const BirthdayExperience: React.FC<BirthdayExperienceProps> = ({
                 onClick={() => setSelectedPhoto(src)}
                 className="group relative aspect-[3/4] rounded-2xl overflow-hidden border border-[#C77C8A]/30 cursor-pointer shadow-xl hover:border-[#E8A6B5] transition-all duration-500 hover:-translate-y-1"
               >
-                <img
-                  src={src}
-                  alt={`Memory ${idx + 1}`}
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
-                />
+                {src.toLowerCase().endsWith(".mp4") ? (
+                  <video
+                    src={src}
+                    aria-label={`Memory ${idx + 1}`}
+                    className="w-full h-full object-cover"
+                    autoPlay
+                    muted
+                    loop
+                    playsInline
+                    preload="metadata"
+                  />
+                ) : (
+                  <img
+                    src={src}
+                    alt={`Memory ${idx + 1}`}
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                  />
+                )}
                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-5">
                   <span className="text-xs text-[#FFF1F4] font-medium flex items-center gap-2">
                     <Heart className="w-4 h-4 text-[#E8A6B5] fill-[#E8A6B5]" /> Memory #{idx + 1}
@@ -289,8 +306,26 @@ export const BirthdayExperience: React.FC<BirthdayExperienceProps> = ({
           className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/90 backdrop-blur-md"
           onClick={() => setSelectedPhoto(null)}
         >
-          <div className="relative max-w-3xl max-h-[85vh] rounded-2xl overflow-hidden border border-[#E8A6B5]/40 shadow-2xl">
-            <img src={selectedPhoto} alt="Enlarged Memory" className="max-w-full max-h-[85vh] object-contain" />
+          <div
+            className="relative max-w-3xl max-h-[85vh] rounded-2xl overflow-hidden border border-[#E8A6B5]/40 shadow-2xl"
+            onClick={(event) => event.stopPropagation()}
+          >
+            {selectedPhoto.toLowerCase().endsWith(".mp4") ? (
+              <video
+                src={selectedPhoto}
+                aria-label="Enlarged memory"
+                className="max-w-full max-h-[85vh] object-contain"
+                controls
+                autoPlay
+                playsInline
+              />
+            ) : (
+              <img
+                src={selectedPhoto}
+                alt="Enlarged Memory"
+                className="max-w-full max-h-[85vh] object-contain"
+              />
+            )}
             <button
               onClick={() => setSelectedPhoto(null)}
               className="absolute top-4 right-4 bg-black/60 text-[#FFF1F4] p-2 rounded-full hover:bg-black/90 transition-colors"
@@ -327,14 +362,16 @@ export const BirthdayExperience: React.FC<BirthdayExperienceProps> = ({
 
               <div className="text-left text-sm text-[#FFF1F4]/90 leading-relaxed font-serif-editorial space-y-3 pt-3 border-t border-[#C77C8A]/20">
                 <p>
-                  Every year we feel more happy and more excited for that one day! Today is yours — make it well and be happy with your friends and families. 🎂
+                  Every year we feel more happy and more excited in this one day! Today is yours — make it well and be happy with your friends and families.❤️ 🎂
                 </p>
                 <p>
-                  Aprm Summa Summa Kova Padaama, Samandhamey Illaama Depress Aagaama, Posukku Posukkunu Sanda Podaama, Theva Illadha Dhaa Nenachi Odambaiyum Seri, Manasaiyum Seri Keduthukkaadha Lekha… Puriyum Nu Namburen. ❤️
+                 Pesa Edhuvum Ilaamaa Kooda 2 3 Mani Neram Namba Pesuvom adhuvum Konjam moola Valrchi Illadha maari, Rendu Perum Enna Next Pesuvom Nu Purinjikira  Alavukku Oru Nalla Bond Namakkulla, Adhanaala Single Aah Vey Keda.. Enakku Company Kudu..😄
+
                 </p>
                 <p>
-                  Enakku Kadavul Nambikkai Laam Illa, But Oruvela Irundharu Naa! Avaroda Aasirvaadham Yeppodhum Irukkum. Indha Year Unakku Nalla Badiya Amaiya Ennudaiya Vazhthukkal. And By The Way, Happy Birthday Lekha! Konjam 3 Hours Late Aachi… Paravaala, Vachikko! ❤️
+                Seekram Doctor Aagu Namma Oorukullaiye Clinic Vachiru..Appo Dhaa Osi la Oosi Poda Mudiyum.. Nanum Pudhusa Emotional ah..Eludha Try Pannan Mudila..Ippadi Dha Pesa Mudiyudhu..By The Way Indha Year Unakku Nalla Badiya Amaiya Ennudaiya Vazhthukkal. And By The Way, Happy Birthday SWATHI! Konjam Late Aachi… Paravaala, Vachikko! ❤️
                 </p>
+                <p>Eppudi Unexpected ah..😎🔥</p>
                 <p className="text-right text-[#D9B88F] pt-2 font-semibold text-base">
                   With all my love, always ❤️
                 </p>

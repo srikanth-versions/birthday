@@ -9,12 +9,14 @@
     --soft-blush: #E8A6B5;
     --champagne: #D9B88F;
     --text-light: #FFF1F4;
+    --font-serif: 'Georgia', 'Times New Roman', serif;
+    --font-sans: 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
   }
   
   body {
     background-color: #12080D;
     color: #FFF1F4;
-    font-family: var(--font-sans), system-ui, -apple-system, sans-serif;
+    font-family: var(--font-sans);
     overflow-x: hidden;
     margin: 0;
     padding: 0;
@@ -23,7 +25,7 @@
 
 /* Custom Editorial Typography Styling */
 .font-serif-editorial {
-  font-family: var(--font-serif), 'Cormorant Garamond', 'Playfair Display', Georgia, serif;
+  font-family: var(--font-serif);
 }
 
 /* Oversized Text Depth & Metallic Shine */

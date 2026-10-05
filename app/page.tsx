@@ -8,7 +8,7 @@ import { NameModal } from "@/components/NameModal";
 import { romanticAudio } from "@/components/AudioEngine";
 
 export default function Home() {
-  const [herName, setHerName] = useState("SHRUTHI");
+  const [herName, setHerName] = useState("SWATHI");
   const [showExperience, setShowExperience] = useState(false);
   const [isTransitioning, setIsTransitioning] = useState(false);
   const [isPlayingMusic, setIsPlayingMusic] = useState(false);
@@ -20,7 +20,7 @@ export default function Home() {
     if (savedName) {
       setHerName(savedName);
     } else {
-      localStorage.setItem("celeste_her_name", "SHRUTHI");
+      localStorage.setItem("celeste_her_name", "SWATHI");
     }
 
     // Auto-start music attempt on enter
